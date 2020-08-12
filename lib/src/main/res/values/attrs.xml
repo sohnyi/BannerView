@@ -19,6 +19,7 @@
         <attr name="is_smooth_scroll" format="boolean" />
         <attr name="scrollTime" format="integer" />
         <attr name="has_indicator" format="boolean" />
+        <attr name="is_loop" format="boolean" />
         <attr name="banner_scale_type" format="enum">
             <enum name="center" value="0" />
             <enum name="center_crop" value="1" />

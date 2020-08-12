@@ -110,6 +110,11 @@ public class BannerView extends FrameLayout
 
         // 图片裁剪方式， 默认 FIT_CENTER
         mScaleType = typedArray.getInt(R.styleable.BannerView_banner_scale_type, BannerScaleType.FIT_CENTER.getValue());
+
+        // 是否循环切换 默认 true
+        isLoop = typedArray.getBoolean(R.styleable.BannerView_is_loop, true);
+
+        typedArray.recycle();
     }
 
     /**
@@ -151,7 +156,6 @@ public class BannerView extends FrameLayout
      */
     public BannerView hasIndicator(boolean has) {
        this.hasIndicator = has;
-
        return this;
     }
 
@@ -179,8 +183,6 @@ public class BannerView extends FrameLayout
     public BannerView setImageUrls(List<?> imageUrls) {
         mImageUrls = imageUrls;
         initImageList(mImageUrls);
-
-
         return this;
     }
 
@@ -193,21 +195,12 @@ public class BannerView extends FrameLayout
        return this;
     }
 
+    /**
+     * 设置是否循环切换
+     */
     public BannerView setLoop(boolean loop) {
         isLoop = loop;
         return this;
-    }
-
-    public void init() {
-        setAdapter();
-        if (hasIndicator && mImageUrls.size() >  0 && !hasSetIndicator && mAdapter != null) {
-            mIndicator.setViewPager(mViewPager, mImageUrls.size());
-            hasSetIndicator = true;
-        }
-
-        if (mImageUrls.size() <= 1) {
-            isAutoPlay = false;
-        }
     }
 
 
@@ -228,14 +221,29 @@ public class BannerView extends FrameLayout
         mClickListener = clickListener;
     }
 
+    /**
+     * 设置页面切换监听事件
+     * @param scrolledListener 页面切换事件
+     */
     public void setScrolledListener(OnBannerScrolledListener scrolledListener) {
         mScrolledListener = scrolledListener;
     }
 
     // * 公共方法 **********************************************************************************/
-    public BannerView start() {
-        initImageList(mImageUrls);
-        return this;
+
+    /**
+     * 完成初始化方法
+     */
+    public void init() {
+        setAdapter();
+        if (hasIndicator && mImageUrls.size() >  0 && !hasSetIndicator && mAdapter != null) {
+            mIndicator.setViewPager(mViewPager, mImageUrls.size());
+            hasSetIndicator = true;
+        }
+
+        if (mImageUrls.size() <= 1) {
+            isAutoPlay = false;
+        }
     }
 
     /**
@@ -266,11 +274,16 @@ public class BannerView extends FrameLayout
         return isPlaying;
     }
 
+    /**
+     * 设置下标对应的页面
+     * 对下标进行页面个数取模
+     */
     public int getCurrentIndex() {
         return mViewPager.getCurrentItem()  % mImageUrls.size();
     }
 
     // * 私有方法 **********************************************************************************/
+
 
     /**
      * 完成图片路径设置
