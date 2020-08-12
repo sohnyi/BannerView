@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initData();
 
-        mStopBtn = (Button) findViewById(R.id.btn_stop);
+        mStopBtn = findViewById(R.id.btn_stop);
         mStopBtn.setOnClickListener(this);
 
         mBannerViewGlide = findViewById(R.id.banner_view_glide);

@@ -59,10 +59,10 @@ public class BannerView extends FrameLayout
     private BannerPagerAdapter mAdapter;
 
     private Handler mHandler;
-    private List mImageUrls;
+    private List<?> mImageUrls;
     private List<View> mImageViews;
     private BannerViewClickListener mClickListener;
-    private ImageLoaderInterface mImageLoader;
+    private ImageLoaderInterface<ImageView> mImageLoader;
 
     private boolean hasSetIndicator;
     private boolean isPlaying;  // 是否正在播放
@@ -79,7 +79,7 @@ public class BannerView extends FrameLayout
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.banner_view, this);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BannerView);
-        initAttrs(context, typedArray);
+        initAttrs(typedArray);
         initData();
     }
 
@@ -90,7 +90,7 @@ public class BannerView extends FrameLayout
     /**
      * 初始化 BannerView 属性值
      */
-    private void initAttrs(Context context, TypedArray typedArray) {
+    private void initAttrs(TypedArray typedArray) {
 
 
         // 是否自动轮播 默认为 true
@@ -171,7 +171,7 @@ public class BannerView extends FrameLayout
     /**
      * 设置图片加载框架
      */
-    public BannerView setImageLoader(ImageLoaderInterface imageLoader) {
+    public BannerView setImageLoader(ImageLoaderInterface<ImageView> imageLoader) {
         mImageLoader = imageLoader;
         return this;
     }
@@ -295,7 +295,7 @@ public class BannerView extends FrameLayout
         }
         mImageViews.clear();
         for (int i = 0; i < imageUrls.size(); i += 1) {
-            View imageView = null;
+            ImageView imageView = null;
             if (mImageLoader != null) {
                 imageView = mImageLoader.createImageView(mContext);
             }

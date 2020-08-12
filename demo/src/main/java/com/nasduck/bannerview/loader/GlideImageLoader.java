@@ -15,6 +15,7 @@ public class GlideImageLoader extends ImageLoader {
         Glide.with(context)
                 .load(path)
                 .placeholder(R.drawable.ic_phaceholder)
+                .error(R.drawable.ic_launcher_foreground)
                 .into(imageView);
     }
 }
