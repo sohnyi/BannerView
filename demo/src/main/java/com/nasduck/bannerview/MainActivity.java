@@ -3,8 +3,8 @@ package com.nasduck.bannerview;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -66,15 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
 
         mUrlStrings = new ArrayList<>();
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2019/04/28/21/12/cosmos-4164414_1280.jpg");
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2018/11/19/03/27/nature-3824496_1280.jpg");
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2019/04/27/00/46/strawberries-4159028_1280.jpg");
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2017/02/17/23/15/duiker-island-2076042_1280.jpg");
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2019/04/22/04/32/blue-4145659_1280.jpg");
-        mUrlStrings.add("https://cdn.pixabay.com/photo/2019/04/27/13/51/spaceman-4160023_1280.jpg");
-        mUrlStrings.add("https://api.hzshzj.com/attachment/images/8/2019/01/TnqjHFFg69EjgGV8e0gG09QYtJhU69.png");
-        mUrlStrings.add("https://api.hzshzj.com/attachment/images/8/2019/01/xdEBNGZlQ24W2BDAdZzzliP41T39Ne.png");
-        mUrlStrings.add("https://api.hzshzj.com/attachment/images/8/2019/01/b6z5z7xvpp5KWF6aPk56Lpxg6yf6rw.png");
+        mUrlStrings.add("https://images.freeimages.com/images/large-previews/cd8/autumn-1362126.jpg");
+        mUrlStrings.add("https://images.freeimages.com/images/large-previews/ea3/autumn-colors-1172540.jpg");
+        mUrlStrings.add("https://images.freeimages.com/images/large-previews/1d9/winter-5-1383783.jpg");
+        mUrlStrings.add("https://images.freeimages.com/images/large-previews/a06/spring-buds-1173653.jpg");
+        mUrlStrings.add("https://images.freeimages.com/images/large-previews/120/wheat-in-summer-1566168.jpg");
 
         mDrawables = new ArrayList<>();
         mDrawables.add(ContextCompat.getDrawable(this, R.drawable.d1));

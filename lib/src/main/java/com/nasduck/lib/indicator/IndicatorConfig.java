@@ -1,7 +1,7 @@
 package com.nasduck.lib.indicator;
 
-import android.support.annotation.AnimatorRes;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.DrawableRes;
 
 public class IndicatorConfig {
 

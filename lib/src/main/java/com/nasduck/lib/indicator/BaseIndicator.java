@@ -7,7 +7,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -132,9 +132,6 @@ public class BaseIndicator extends LinearLayout {
 
     /**
      * Indicator 数量, 当前选中
-     *
-     * @param count
-     * @param currentPosition
      */
     protected void createIndicators(int count, int currentPosition) {
         for (int i = 0; i < count; i++) {
@@ -148,9 +145,6 @@ public class BaseIndicator extends LinearLayout {
 
     /**
      * 添加 Indicator
-     *
-     * @param backgroundDrawableId
-     * @param animator
      */
     protected void addIndicator(@DrawableRes int backgroundDrawableId,
                                 Animator animator) {
